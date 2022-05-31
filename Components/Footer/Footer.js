@@ -1,11 +1,10 @@
-import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 import CopyButton from '../CopyButton/CopyButton';
 import styles from './Footer.module.css';
 
 function PostInfo({ post }) {
   return (
-    <div className={styles.postDateAndComments}>
+    <section className={styles.postDateAndComments}>
       <div>
         <p>Written by</p>
         <h2>{post.author.name}</h2>
@@ -18,14 +17,14 @@ function PostInfo({ post }) {
         <p>Comments</p>
         <h2>{post.discussion.comment_count} Comments</h2>
       </div>
-    </div>
+    </section>
   );
 }
 
-function ShardIcons({ URL, ID }) {
+function ShareIcons({ URL }) {
   return (
     <section className={styles.shareSection}>
-      <CopyButton URL={URL} ID={ID} />
+      <CopyButton URL={URL} />
 
       <a
         href={`https://twitter.com/intent/tweet?post.URL=${encodeURIComponent(
@@ -67,11 +66,11 @@ function ShardIcons({ URL, ID }) {
 
 export default function Footer({ post, setCopyText, copyText }) {
   return (
-    <section className={styles.footer}>
+    <footer className={styles.footer}>
       <div className={styles.postInfo}>
         <PostInfo post={post} />
-        <ShardIcons ID={post.ID} URL={post.URL} />
+        <ShareIcons ID={post.ID} URL={post.URL} />
       </div>
-    </section>
+    </footer>
   );
 }

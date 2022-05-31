@@ -1,17 +1,25 @@
 import { Tooltip } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { copy } from '../../utils';
 import styles from './CopyButton.module.css';
 
-export default function CopyButton({ URL, ID }) {
-  const [copyText, setCopyText] = React.useState('Copy');
+export default function CopyButton({ URL }) {
+  const [isCopied, setIsCopied] = React.useState(false);
+
+  // reset the label after 1 second
+  useEffect(() => {
+    if (isCopied) {
+      setTimeout(setIsCopied, 1000, false);
+    }
+  }, [isCopied]);
+
   return (
-    <Tooltip title={ID === copyText ? 'Copied' : 'Copy'}>
+    <Tooltip title={isCopied ? 'Copied' : 'Copy'}>
       <button
         className={styles.copyBtn}
         onClick={() => {
           copy(URL);
-          setCopyText(ID);
+          setIsCopied(true);
         }}
       >
         <svg

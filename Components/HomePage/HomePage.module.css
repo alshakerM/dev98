@@ -2,6 +2,10 @@
   width: 1024px;
   margin: 0 auto;
   gap: 50px;
+  border: 1px solid #eee;
+  box-shadow: 2px 8px 17px -14px rgba(66, 68, 90, 1);
+  padding: 10px 2%;
+  box-sizing: border-box;
 }
 .backBtn {
   position: absolute;

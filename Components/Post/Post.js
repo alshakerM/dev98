@@ -8,14 +8,14 @@ import Footer from '../Footer/Footer';
 
 function PostHeader({ cats, title }) {
   return (
-    <div>
+    <header>
       {cats.map((cat) => (
         <Link key={cat.slug} href={`/?category=${cat.name}`}>
           <a className={styles.catName}>{cat.name}</a>
         </Link>
       ))}
       <h2 className={styles.title}>{decodeEntities(title)}</h2>
-    </div>
+    </header>
   );
 }
 
@@ -25,7 +25,7 @@ function PostBody({ post, tags, readTime }) {
       <p
         className={styles.excerpt}
         dangerouslySetInnerHTML={{
-          __html: removeReadMore(post.excerpt),
+          __html: decodeEntities(removeReadMore(post.excerpt)),
         }}
       ></p>
       <a
@@ -44,28 +44,36 @@ function PostBody({ post, tags, readTime }) {
         ))}
         <p className={styles.readTime}>{readTime} read</p>
       </section>
-      <PostImage post={post} />
+      <FeaturedImage post={post} />
     </section>
   );
 }
 
-function PostImage({ post }) {
-  return (
-    post.post_thumbnail && (
+function getKeyByValue(object, value) {
+  return Object.keys(object).find((key) => object[key] === value);
+}
+
+function FeaturedImage({ post }) {
+  if (post.attachments && post.featured_image) {
+    const postImage = Object.values(post.attachments).find(
+      (p) => (p.URL = post.featured_image)
+    );
+
+    return (
       <div className={styles.imgContainer}>
         <Image
-          src={post.post_thumbnail.URL}
-          alt={post.featured_image}
+          src={postImage.URL}
+          alt="A picture about the post"
           className={styles.postImg}
-          width={post.post_thumbnail.width}
-          height={post.post_thumbnail.height}
+          width={postImage.width}
+          height={postImage.height}
           loading="lazy"
           layout="responsive"
           objectFit="contain"
         />
       </div>
-    )
-  );
+    );
+  }
 }
 
 export default function Post({ post, isLoading }) {
@@ -74,7 +82,7 @@ export default function Post({ post, isLoading }) {
   const readTime = readingTime(post.content);
 
   return (
-    <section
+    <article
       key={post.ID}
       className={cx(styles.postSection, {
         [styles.isLoading]: isLoading,
@@ -83,6 +91,6 @@ export default function Post({ post, isLoading }) {
       <PostHeader cats={cats} title={post.title} />
       <PostBody post={post} tags={tags} readTime={readTime} />
       <Footer post={post} />
-    </section>
+    </article>
   );
 }
