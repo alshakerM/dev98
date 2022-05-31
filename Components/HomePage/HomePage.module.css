@@ -1,0 +1,20 @@
+.content {
+  width: 1024px;
+  margin: 0 auto;
+  gap: 50px;
+}
+.backBtn {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  background: none;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+}
+.backBtn:hover {
+  background-color: black;
+}

@@ -1,0 +1,21 @@
+.copyBtn {
+  border-radius: 30px;
+  padding: 5px 10px;
+  align-self: center;
+  font-size: 0.8em;
+  border: 0;
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+  margin-bottom: 2px;
+}
+.copyBtnText {
+  padding: 0;
+  margin: 0;
+}
+.copyBtnIcon {
+  stroke: white;
+}

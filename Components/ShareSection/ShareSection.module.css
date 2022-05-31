@@ -1,0 +1,30 @@
+.shareSection {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.twitterBtn,
+.facebookBtn,
+.linkedInBtn {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  align-self: center;
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.postInfo {
+  display: flex;
+  gap: 40px;
+  font-size: 0.7em;
+  justify-content: space-between;
+  width: 100%;
+}
+.postDateAndComments {
+  display: flex;
+  gap: 50px;
+}

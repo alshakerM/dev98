@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
+
+.errorPage {
+  background-image: url('/Error.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: fixed;
+}
+.errorContent {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  align-items: center;
+  animation: blur-background 10s ease-in-out infinite;
+}
+.errorIcon {
+  height: 600px;
+  width: 600px;
+  fill: rgba(174, 134, 59, 0.5);
+  animation: blur-background 10s ease-in-out infinite;
+}
+.errorText {
+  max-width: 500px;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.5em;
+  color: bisque;
+  line-height: 1.2em;
+}
+@keyframes blur-background {
+  50% {
+    backdrop-filter: blur(10px);
+    fill: rgba(246, 203, 124, 1);
+  }
+}
