@@ -4,7 +4,7 @@ import Image from 'next/dist/client/image';
 import Link from 'next/link';
 import cx from 'classnames';
 import { readingTime, decodeEntities, removeReadMore } from '../../utils';
-import ShareSection from '../ShareSection/ShareSection';
+import Footer from '../Footer/Footer';
 
 function PostHeader({ cats, title }) {
   return (
@@ -44,6 +44,7 @@ function PostBody({ post, tags, readTime }) {
         ))}
         <p className={styles.readTime}>{readTime} read</p>
       </section>
+      <PostImage post={post} />
     </section>
   );
 }
@@ -81,8 +82,7 @@ export default function Post({ post, isLoading }) {
     >
       <PostHeader cats={cats} title={post.title} />
       <PostBody post={post} tags={tags} readTime={readTime} />
-      <PostImage post={post} />
-      <ShareSection post={post} />
+      <Footer post={post} />
     </section>
   );
 }

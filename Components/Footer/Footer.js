@@ -1,7 +1,7 @@
 import Tooltip from '@mui/material/Tooltip';
 import React from 'react';
 import CopyButton from '../CopyButton/CopyButton';
-import styles from './ShareSection.module.css';
+import styles from './Footer.module.css';
 
 function PostInfo({ post }) {
   return (
@@ -65,7 +65,7 @@ function ShardIcons({ URL, ID }) {
   );
 }
 
-export default function ShareSection({ post, setCopyText, copyText }) {
+export default function Footer({ post, setCopyText, copyText }) {
   return (
     <section className={styles.footer}>
       <div className={styles.postInfo}>

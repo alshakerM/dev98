@@ -69,7 +69,7 @@ export default function HomePage() {
   );
   return (
     <>
-      {error ? (
+      {!error ? (
         <main className={styles.content}>
           {router.asPath !== '/' && (
             <Link href="/">
