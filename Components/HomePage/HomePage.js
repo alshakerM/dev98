@@ -5,7 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { ArrowBackOutlined } from '@mui/icons-material';
 import Post from '../Post/Post';
 import ErrorPage from '../ErrorPage/ErrorPage';
-import TopBar from '../Topbar/Topbar';
+import TopBar from '../TopBar/TopBar';
 import { useParamsString, usePosts } from '../../apiClient';
 import NavButton from '../NavButton/NavButton';
 
