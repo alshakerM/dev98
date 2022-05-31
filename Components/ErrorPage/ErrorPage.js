@@ -1,10 +1,6 @@
 import React from 'react';
 import styles from './ErrorPage.module.css';
-import {
-  SignalWifiConnectedNoInternet4TwoTone,
-  WarningOutlined,
-} from '@mui/icons-material';
-import TopBar from '../Topbar/Topbar';
+import { SignalWifiConnectedNoInternet4TwoTone } from '@mui/icons-material';
 
 export default function ErrorPage() {
   return (
