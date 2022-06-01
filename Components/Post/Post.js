@@ -42,7 +42,7 @@ function PostBody({ post, tags, readTime }) {
             <a className={styles.tagName}>{tag.name}</a>
           </Link>
         ))}
-        <p className={styles.readTime}>{readTime} read</p>
+        <p className={styles.readTime}>{readTime} Min read</p>
       </section>
       <FeaturedImage post={post} />
     </section>
@@ -56,11 +56,11 @@ function getKeyByValue(object, value) {
 function FeaturedImage({ post }) {
   if (post.attachments && post.featured_image) {
     const postImage = Object.values(post.attachments).find(
-      (p) => (p.URL = post.featured_image)
+      (p) => p.URL === post.featured_image
     );
-
+    console.log({ postImage, post });
     return (
-      <div className={styles.imgContainer}>
+      postImage && (
         <Image
           src={postImage.URL}
           alt="A picture about the post"
@@ -69,9 +69,9 @@ function FeaturedImage({ post }) {
           height={postImage.height}
           loading="lazy"
           layout="responsive"
-          objectFit="fill"
+          objectFit="contain"
         />
-      </div>
+      )
     );
   }
 }

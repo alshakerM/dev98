@@ -30,7 +30,14 @@ export default function NavButton() {
     return (
       <Tooltip title="Back to top">
         <button className={styles.navButton} onClick={scrollToTop}>
-          <Navigation className={styles.navIcon} />
+          <svg
+            className={styles.navIcon}
+            focusable="false"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 2 4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"></path>
+          </svg>
         </button>
       </Tooltip>
     );
