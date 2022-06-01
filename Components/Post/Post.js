@@ -42,7 +42,7 @@ function PostBody({ post, tags, readTime }) {
             <a className={styles.tagName}>{tag.name}</a>
           </Link>
         ))}
-        <p className={styles.readTime}>{readTime} Min read</p>
+        <p className={styles.readTime}>{readTime} min(s) read</p>
       </section>
       <FeaturedImage post={post} />
     </section>

@@ -99,6 +99,7 @@
     margin: 0;
     margin-top: 50px;
     border-bottom: 3px solid salmon;
+    border-radius: 0;
   }
   .excerpt {
     word-break: break-all;
