@@ -1,7 +1,6 @@
 .content {
   width: 1024px;
   margin: 0 auto;
-  gap: 50px;
   border: 1px solid #eee;
   box-shadow: 2px 8px 17px -14px rgba(66, 68, 90, 1);
   padding: 10px 2%;
@@ -25,7 +24,7 @@
 }
 @media screen and (max-width: 735px) {
   .content {
-    width: 100%;
+    max-width: 100%;
   }
   .backBtn {
     display: none;

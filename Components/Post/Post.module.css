@@ -97,4 +97,7 @@
     margin-top: 50px;
     border-bottom: 3px solid salmon;
   }
+  .excerpt {
+    word-break: break-all;
+  }
 }
