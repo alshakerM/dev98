@@ -15,8 +15,9 @@ function PostInfo({ post }) {
       </div>
       <div>
         <p>Comments</p>
-        <h2 className={styles.commentCount}>
-          {post.discussion.comment_count} Comments
+        <h2>
+          {post.discussion.comment_count}
+          <span className={styles.commentCount}> Comments</span>
         </h2>
       </div>
     </section>
