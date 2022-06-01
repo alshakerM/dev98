@@ -30,6 +30,10 @@ npm install
 # start dev server
 npm run dev
 ```
+#### Responsive
+
+![image](https://user-images.githubusercontent.com/82781870/171487951-1f4f2889-c89d-4cc0-aa63-8137576579ec.png)
+
 
 ### Copyright
 
