@@ -16,7 +16,13 @@ export default function HomePage() {
   const hasParams = !!params;
 
   const { posts, isLoading, isError } = usePosts();
-
+  if (!isLoading && posts.length === 0) {
+    return (
+      <>
+        <TopBar /> <ErrorPage noPosts />
+      </>
+    );
+  }
   return (
     <>
       <TopBar />

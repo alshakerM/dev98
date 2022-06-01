@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 
 /**
  * Empty post data to be used as placeholders during loading
  */
-const postPlaceholders = Array.from({ length: 10 }, () => ({
+const postPlaceholders = Array.from({ length: 10 }, (_, ID) => ({
+  ID,
   title: '-'.repeat(48),
   excerpt: '-'.repeat(482),
   loading: true,
@@ -45,26 +47,21 @@ export async function fetchPosts(params) {
     return Promise.reject(error);
   }
 }
+
 /**
  *
  * @returns the posts data, loading status and error status
  */
 export function usePosts() {
   const params = useParamsString();
-  const [data, setData] = useState(postPlaceholders);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    // when params change, delete the posts in cache to show the loading state for a better UX
-    setData(postPlaceholders);
-    fetchPosts(params)
-      .then((posts) => {
-        setData(posts.posts);
-      })
-      .catch(() => setIsError(true));
-  }, [params]);
-
-  return { posts: data, isError, isLoading: data === postPlaceholders };
+  const {
+    data = { posts: postPlaceholders },
+    isLoading,
+    isError,
+  } = useQuery(params, () => fetchPosts(params), {
+    staleTime: 1000000,
+  });
+  return { posts: data.posts, isError, isLoading };
 }
 /**
  * Gets the URL params and returns them as a string

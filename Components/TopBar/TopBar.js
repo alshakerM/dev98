@@ -1,12 +1,18 @@
 import { Tooltip } from '@mui/material';
 import React from 'react';
 import styles from './TopBar.module.css';
+import Link from 'next/link';
 
 export default function TopBar() {
   return (
     <div className={styles.topBar}>
       <div className={styles.barContent}>
-        <h2 className={styles.logo}>Dev98</h2>
+        <Link href="/">
+          <a>
+            <h2 className={styles.logo}>Dev98</h2>
+          </a>
+        </Link>
+
         <Tooltip title="GitHub repository link">
           <a
             className={styles.gitHubLink}

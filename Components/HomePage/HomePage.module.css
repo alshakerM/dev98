@@ -7,20 +7,14 @@
   box-sizing: border-box;
 }
 .backBtn {
-  position: absolute;
-  top: 10%;
-  left: 10%;
+  position: fixed;
+  top: 80px;
+  left: 20px;
   background: none;
-  padding: 10px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid black;
-  box-sizing: border-box;
+  border: none;
 }
 .backBtn:hover {
-  background-color: black;
+  color: salmon;
 }
 @media screen and (max-width: 735px) {
   .content {
