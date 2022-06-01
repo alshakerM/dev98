@@ -69,7 +69,7 @@ function FeaturedImage({ post }) {
           height={postImage.height}
           loading="lazy"
           layout="responsive"
-          objectFit="contain"
+          objectFit="fill"
         />
       </div>
     );

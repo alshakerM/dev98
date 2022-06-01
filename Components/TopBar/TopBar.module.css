@@ -2,8 +2,15 @@
   width: 100%;
   border-bottom: 1px solid salmon;
   height: 60px;
+}
+.barContent {
+  width: 1024px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .gitHubLink {
@@ -12,4 +19,9 @@
 .gitHubIcon {
   width: 35px;
   height: 35px;
+}
+@media screen and (max-width: 735px) {
+  .barContent {
+    width: 100%;
+  }
 }

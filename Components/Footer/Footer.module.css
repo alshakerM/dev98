@@ -28,3 +28,22 @@
   display: flex;
   gap: 50px;
 }
+@media screen and (max-width: 735px) {
+  .postInfo {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .shareSection {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 30%;
+  }
+  .shareIcon {
+    width: 35px;
+    height: 35px;
+  }
+  .commentCount {
+    text-align: center;
+  }
+}
