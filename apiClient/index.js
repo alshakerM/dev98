@@ -55,6 +55,8 @@ export function usePosts() {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+    // when params change, delete the posts in cache to show the loading state for a better UX
+    setData(postPlaceholders);
     fetchPosts(params)
       .then((posts) => {
         setData(posts.posts);
