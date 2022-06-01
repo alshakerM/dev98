@@ -6,7 +6,7 @@ import cx from 'classnames';
 import { readingTime, decodeEntities, removeReadMore } from '../../utils';
 import Footer from '../Footer/Footer';
 
-function PostHeader({ cats, title }) {
+function PostHeader({ cats, title, URL }) {
   return (
     <header>
       {cats.map((cat) => (
@@ -14,7 +14,9 @@ function PostHeader({ cats, title }) {
           <a className={styles.catName}>{cat.name}</a>
         </Link>
       ))}
-      <h2 className={styles.title}>{decodeEntities(title)}</h2>
+      <a href={URL} target="_blank" rel="noreferrer">
+        <h2 className={styles.title}>{decodeEntities(title)}</h2>
+      </a>
     </header>
   );
 }
@@ -49,28 +51,25 @@ function PostBody({ post, tags, readTime }) {
   );
 }
 
-function getKeyByValue(object, value) {
-  return Object.keys(object).find((key) => object[key] === value);
-}
-
 function FeaturedImage({ post }) {
   if (post.attachments && post.featured_image) {
     const postImage = Object.values(post.attachments).find(
       (p) => p.URL === post.featured_image
     );
-    console.log({ postImage, post });
     return (
       postImage && (
-        <Image
-          src={postImage.URL}
-          alt="A picture about the post"
-          className={styles.postImg}
-          width={postImage.width}
-          height={postImage.height}
-          loading="lazy"
-          layout="responsive"
-          objectFit="contain"
-        />
+        <a href={post.URL} target="_blank" rel="noreferrer">
+          <Image
+            src={postImage.URL}
+            alt="A picture about the post"
+            className={styles.postImg}
+            width={postImage.width}
+            height={postImage.height}
+            loading="lazy"
+            layout="responsive"
+            objectFit="contain"
+          />
+        </a>
       )
     );
   }
@@ -88,7 +87,7 @@ export default function Post({ post, isLoading }) {
         [styles.isLoading]: isLoading,
       })}
     >
-      <PostHeader cats={cats} title={post.title} />
+      <PostHeader cats={cats} title={post.title} URL={post.URL} />
       <PostBody post={post} tags={tags} readTime={readTime} />
       <Footer post={post} />
     </article>
